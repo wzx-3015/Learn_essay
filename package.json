@@ -1,0 +1,21 @@
+{
+  "name": "Learn_essay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "gulp:build": "vuepress build docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sftp": "^0.1.5",
+    "less": "^3.11.3",
+    "less-loader": "^6.1.2",
+    "vuepress": "^1.5.2"
+  }
+}
