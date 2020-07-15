@@ -3,7 +3,7 @@
  * @Author: xiao xin (834529118@qq.com)
  * @Date: 2020-06-28 20:01:48
  * @LastEditors: xiao xin (834529118@qq.com)
- * @LastEditTime: 2020-07-10 09:31:01
+ * @LastEditTime: 2020-07-15 10:24:04
  -->
 <template>
   <div class="leetcode">
@@ -11,8 +11,6 @@
 </template>
 <script>
 import Vue from 'vue'
-let vueEl = new Vue()
-console.log(vueEl)
 export default { 
   name: 'leetcode',
   data () {
@@ -24,6 +22,52 @@ export default {
     
   },
   created () {
+    let treeNode = {
+      val: 1,
+      left: null,
+      right: {
+        val: 2,
+        left: {
+          val: 3,
+          left: null,
+          right: null,
+        },
+        right: {
+          val: 4,
+          left: {
+            val: 5,
+            left: null,
+            right: null
+          },
+          right: null
+        }
+      }
+    }
+
+    function inorderTraversal(root) {
+      if (!root.left)  {
+        console
+      }
+    }
+
+    /**
+     * @param {TreeNode} root
+     * @return {number[]}
+     * @description  二叉树前序遍历
+     */
+    function preorderTraversal(root) {
+      let array = []
+      if(!root) return []
+
+      if (!root.left && !root.right) {
+        return [...array, root.val]
+      }
+
+
+      array = [...array, root.val, ...preorderTraversal(root.left), ...preorderTraversal(root.right)]
+
+      return array
+    }
   }
 }
 </script>

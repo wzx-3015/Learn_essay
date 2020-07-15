@@ -1,3 +1,6 @@
+
+# 2020/07
+
 <leetcode />
 
 ## 1.给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组，并返回其长度。如果不存在符合条件的连续子数组，返回 0。
@@ -94,7 +97,7 @@ var findKthLargest = function(nums, k) {
 
 ## 3.广度与深度优先遍历
 
-::: tip 模拟数据
+::: tip 示例数据
 ```js
 const data = [
   {
@@ -226,4 +229,85 @@ hasPathSum (root, sum) {
 ```
 :::
 
+## 5.二叉树的遍历
 
+::: tip 示例数据
+```js
+let treeNode = {
+  val: 1,
+  left: null,
+  right: {
+    val: 2,
+    left: {
+      val: 3,
+      left: null,
+      right: null,
+    },
+    right: {
+      val: 4,
+      left: {
+        val: 5,
+        left: null,
+          right: null
+      },
+      right: null
+    }
+  }
+}
+```
+:::
+
+### 二叉树前序遍历 -> 前序遍历首先访问根节点，然后遍历左子树，最后遍历右子树。
+::: details 参考求解
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ * @description  二叉树前序遍历
+ */
+function preorderTraversal(root) {
+  if(!root) return []
+  let array = []
+
+  // 左右节点不存在时代码处理最深层节点
+  if (!root.left && !root.right) {
+    // 数据合并
+    return [...array, root.val]
+  }
+
+  // 数据合并
+  array = [...array, root.val, ...preorderTraversal(root.left), ...preorderTraversal(root.right)]
+
+  return array
+}
+
+// 输出: [1, 2, 3, 4, 5]
+```
+:::
+
+
+### 二叉树中序遍历 -> 中序遍历是先遍历左子树，然后访问根节点，然后遍历右子树。
+::: details 参考求解
+```js
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ * @description  二叉树前序遍历
+ */
+function preorderTraversal(root) {
+  if(!root) return []
+  let array = []
+
+  // 左右节点不存在时代码处于最深层节点
+  if (!root.left && !root.right) {
+    // 数据合并
+    return [...array, root.val]
+  }
+
+  // 数据合并
+  array = [...array, root.val, ...preorderTraversal(root.left), ...preorderTraversal(root.right)]
+
+  return array
+}
+```
+:::

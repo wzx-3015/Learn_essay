@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.5.2",
     "gulp": "^4.0.2",
     "gulp-sftp": "^0.1.5",
     "less": "^3.11.3",

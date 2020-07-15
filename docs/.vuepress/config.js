@@ -3,7 +3,7 @@
  * @Author: WangZhen Xin (834529118@qq.com)
  * @Date: 2019-09-11 11:15:43
  * @LastEditors: xiao xin (834529118@qq.com)
- * @LastEditTime: 2020-06-30 13:52:37
+ * @LastEditTime: 2020-07-15 10:46:17
  */
 module.exports = {
   title: '@小鑫',
@@ -11,6 +11,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
+  plugins: ['@vuepress/active-header-links'],
   base:　'/blogs/',
   dest: 'dist',
   port: '7000',
@@ -19,12 +20,7 @@ module.exports = {
       // { text: 'Home', link: '/' },
       {
         text: '前端监控',
-        items: [
-          {
-            text: '前端异常监控篇',
-            link: '/web/monitoring/'
-          }
-        ]
+        link: '/web/monitoring/',
       },
       {
         text: 'leetcode 每日一题',
@@ -49,6 +45,16 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/wzx1997/blogs/tree/master' },
     ],
     sidebar: {
+      '/leetcode/': [
+        {
+          title: 'leetcode 每日一题',
+          collapsable: false,
+          sidebarDepth: 2,
+          children: [
+            ''
+          ]
+        }
+      ],
       '/web/css/': [
         {
           title: 'CSS奇妙之旅',
@@ -86,7 +92,7 @@ module.exports = {
           sidebarDepth: 1,
           children: ['', 'collection']
         }
-      ]
+      ],
     }
   },
   markdown: {
