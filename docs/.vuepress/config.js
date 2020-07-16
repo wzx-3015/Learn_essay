@@ -3,7 +3,7 @@
  * @Author: WangZhen Xin (834529118@qq.com)
  * @Date: 2019-09-11 11:15:43
  * @LastEditors: xiao xin (834529118@qq.com)
- * @LastEditTime: 2020-07-15 10:46:17
+ * @LastEditTime: 2020-07-15 11:47:38
  */
 module.exports = {
   title: '@小鑫',
@@ -25,6 +25,9 @@ module.exports = {
       {
         text: 'leetcode 每日一题',
         link: '/leetcode/',
+      },
+      {
+        text: 'Vue源码学习', link: '/vue/'
       },
       {
         text: '前端',

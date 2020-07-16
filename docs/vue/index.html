@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue3.0</title>
+</head>
+<body>
+  <div id="app"></div>
+  <button id="btn">click</button>
+  <script src="./reactive.js"></script>
+  <script>
+    const root = document.querySelector('#app')
+    const btn = document.querySelector('#btn')
+
+    let obj = reactive({
+      name: 'wzx',
+      age: 20
+    })
+
+    console.log(obj)
+
+    let double = computed(() => obj.age * 2)
+
+    effect(() => {
+      console.log('数据变了', obj.name)
+      root.innerHTML = `<h1>${obj.name}几年${obj.age},双倍${double.value}</h1>`
+    })
+    
+    btn.addEventListener('click', () => {
+      obj.age+=1
+    }, false)
+  </script>
+</body>
+</html>
