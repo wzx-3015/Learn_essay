@@ -3,7 +3,7 @@
  * @Author: xiao xin (834529118@qq.com)
  * @Date: 2020-06-28 20:01:48
  * @LastEditors: xiao xin (834529118@qq.com)
- * @LastEditTime: 2020-07-15 10:24:04
+ * @LastEditTime: 2020-07-16 10:30:50
  -->
 <template>
   <div class="leetcode">
@@ -19,12 +19,43 @@ export default {
     }
   },
   methods: {
-    
+    createNode (array) {
+      const len = array.length
+      let nodeArray = array
+      let nodeTree = {}
+      if (!array.length) {
+        return nodeTree
+      }
+
+      // 计算得最少到几层二叉树
+      let log2 = Math.log2(len)
+      let layer = 0
+      if (log2.toString().indexOf('.') > -1) {
+        layer = parseInt(log2) + 1
+      }
+
+
+      if (layer === 1) {
+        nodeTree.val = nodeArray.shift()
+      }
+    }
   },
   created () {
     let treeNode = {
       val: 1,
-      left: null,
+      left: {
+        val: 6,
+        left: {
+          val: 7,
+          left: null,
+          right: null
+        },
+        right: {
+          val: 8,
+          right: null,
+          left: null
+        }
+      },
       right: {
         val: 2,
         left: {
@@ -44,11 +75,28 @@ export default {
       }
     }
 
+    /**
+     * @description   二叉树中序遍历(利用栈陷入后出)
+     */
     function inorderTraversal(root) {
-      if (!root.left)  {
-        console
+      let result = []
+      let rootTree = root
+      let stack = []
+      while(rootTree || stack.length > 0) {
+        while(rootTree) {
+          stack.push(rootTree)
+          rootTree = rootTree.left
+        }
+
+        rootTree = stack.pop()
+        result.push(rootTree.val)
+        rootTree = rootTree.right
       }
+
+      return result
     }
+
+    console.log(inorderTraversal(treeNode))
 
     /**
      * @param {TreeNode} root

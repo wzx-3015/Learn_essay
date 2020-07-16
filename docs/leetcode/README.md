@@ -290,24 +290,24 @@ function preorderTraversal(root) {
 ::: details 参考求解
 ```js
 /**
- * @param {TreeNode} root
- * @return {number[]}
- * @description  二叉树前序遍历
+ * @description   二叉树中序遍历(利用栈陷入后出)
  */
-function preorderTraversal(root) {
-  if(!root) return []
-  let array = []
+function inorderTraversal(root) {
+  let result = []
+  let rootTree = root
+  let stack = []
+  while(rootTree || stack.length > 0) {
+    while(rootTree) {
+      stack.push(rootTree)
+      rootTree = rootTree.left
+    }
 
-  // 左右节点不存在时代码处于最深层节点
-  if (!root.left && !root.right) {
-    // 数据合并
-    return [...array, root.val]
+    rootTree = stack.pop()
+    result.push(rootTree.val)
+    rootTree = rootTree.right
   }
 
-  // 数据合并
-  array = [...array, root.val, ...preorderTraversal(root.left), ...preorderTraversal(root.right)]
-
-  return array
+  return result
 }
 ```
 :::
