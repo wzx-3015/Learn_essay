@@ -3,8 +3,10 @@
  * @Author: xiao xin (834529118@qq.com)
  * @Date: 2020-07-15 11:36:33
  * @LastEditors: xiao xin (834529118@qq.com)
- * @LastEditTime: 2020-07-15 11:45:42
- */ 
+ * @LastEditTime: 2020-07-17 09:13:28
+ */
+
+ // 利用观察者模式实现依赖收集
 
  let activeEffcet = null
 
