@@ -248,7 +248,7 @@ let treeNode = {
       left: {
         val: 5,
         left: null,
-          right: null
+        right: null
       },
       right: null
     }
@@ -290,7 +290,7 @@ function preorderTraversal(root) {
 ::: details 参考求解
 ```js
 /**
- * @description   二叉树中序遍历(利用栈陷入后出)
+ * @description   二叉树中序遍历(利用栈先入后出)
  */
 function inorderTraversal(root) {
   let result = []
@@ -306,6 +306,28 @@ function inorderTraversal(root) {
     result.push(rootTree.val)
     rootTree = rootTree.right
   }
+
+  return result
+}
+```
+```js
+/**
+  * @description   二叉树中序遍历（递归）
+  */
+function inorderTraversal1 (root) {
+  let result = []
+
+  function inorder(root) {
+    if (!root) {
+      return null
+    }
+
+    inorder(root.left);
+    result.push(root.val)
+    inorder(root.right);
+  }
+
+  inorder(root)
 
   return result
 }

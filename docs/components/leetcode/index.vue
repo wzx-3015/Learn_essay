@@ -3,7 +3,7 @@
  * @Author: xiao xin (834529118@qq.com)
  * @Date: 2020-06-28 20:01:48
  * @LastEditors: xiao xin (834529118@qq.com)
- * @LastEditTime: 2020-07-16 10:30:50
+ * @LastEditTime: 2020-07-17 10:16:36
  -->
 <template>
   <div class="leetcode">
@@ -96,7 +96,29 @@ export default {
       return result
     }
 
-    console.log(inorderTraversal(treeNode))
+    /**
+     * @description   二叉树中序遍历（递归）
+     */
+    function inorderTraversal1 (root) {
+      let result = []
+
+      function inorder(root) {
+        if (!root) {
+          return null
+        }
+
+        inorder(root.left);
+        result.push(root.val)
+        inorder(root.right);
+      }
+
+      inorder(root)
+
+      return result
+    }
+
+    console.log(inorderTraversal1(treeNode))
+
 
     /**
      * @param {TreeNode} root
